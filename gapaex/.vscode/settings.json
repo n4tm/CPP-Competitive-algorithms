@@ -1,0 +1,23 @@
+{
+    "files.associations": {
+        "*.html": "njk",
+        "iostream": "cpp",
+        "array": "cpp",
+        "bitset": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "regex": "cpp",
+        "utility": "cpp",
+        "valarray": "cpp"
+    },
+    "prettifySymbolsMode.substitutions": [{
+        "language": "cpp",
+        "substitutions": [
+            { "ugly": "->", "pretty": "→", "pre": "[^->]", "post": "[^->]", "style": {"dark": {"color": "#C789D6"}} },
+            { "ugly": ">=", "pretty": "≥", "pre": "[^=\\-<>]|^", "post": "[^=\\-<>]|$", "style": {"dark": {"color": "#C789D6"}} },
+            { "ugly": "<=", "pretty": "≤", "pre": "[^=\\-<>]|^", "post": "[^=\\-<>]|$", "style": {"dark": {"color": "#C789D6"}} }
+        ]
+    }
+],
+"C_Cpp.errorSquiggles": "Enabled"
+}

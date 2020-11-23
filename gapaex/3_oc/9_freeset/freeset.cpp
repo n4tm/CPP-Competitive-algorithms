@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long int lli;
 
-lli n, k, scan_aux, middle, ir, il;
+lli n, k, scan_aux;
 vector<lli> v;
 set<lli> s;
 
@@ -15,13 +15,12 @@ int main () {
     auto l = v.begin();
     auto r = v.end();
     sort(l, r);
-    r = prev(r);
     for (auto x : v) {
         if (x % k != 0) {
             s.insert(x);
         } else {
            if (s.find(x/k) == s.end()) {
-            s.insert(x);
+                s.insert(x);
            }
         }
     }
