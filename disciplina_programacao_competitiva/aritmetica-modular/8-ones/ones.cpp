@@ -19,12 +19,11 @@ void solve() {
 		string s = "";
 		while (n%m) {
 			s += "1";
-			for (int i=0; i < s.size(); i++) {
-				int pow10 = (10%m*n%m)%m;
-				n = (pow10%m + (s[i] - '0')%m)%m;
-			}
+			int pow10 = (10%m*n%m)%m;
+			n = (pow10%m + 1%m)%m;
+		
 		}
-		cout << s.size() << '\n';
+		cout << s.size()+1 << '\n';
 	}
 };
 
