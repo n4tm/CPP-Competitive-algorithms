@@ -11,18 +11,20 @@ using namespace std;
 #define MOD (int) 1e9+7
 int inv_mod(int a, int b){return a > 1 ? b-inv_mod(b%a, a)*b/a : 1;};
 
-string s;
+string s1, s2;
+int n, aux;
 
 void solve() {
-	while(cin >> s) {
-		int n = 0;
-		for (int i=0; i < s.size(); i++) {
-			n = 10*n + s[i] - 'A';
+	while(cin >> s1) {
+		for (int i=0; i<s1.size(); i++) {
+			s2 += to_string(s1[i] - 'A');
 		}
-		cout << 60160%MOD << '\n';
-
+		for (int i=0; i <s2.size(); i++) {
+			int pow10 = (n%MOD*10%MOD)%MOD;
+			n = (pow10%MOD + (s2[i] - '0')%MOD)%MOD;
+		}
+		cout << s2 << '\n';
 	}
-
 };
 
 int main() {
