@@ -9,11 +9,10 @@ using namespace std;
 #define all(c) (c).begin(), (c).end()
 #define sz(x) (int)(x).size()
 #define MOD (int)(1e9+7)
-int inv_mod(int a, int b){return a > 1 ? b-inv_mod(b%a, a)*b/a : 1;};
+int inv_mod(int a, int b){return (a > 1 ? b-inv_mod(b%a, a)*b/a : 1);}
 
 string s;
 vector<int> v;
-
 
 int factorial(int num) {
 	if(num > 1) return (num%MOD*factorial(num-1)%MOD)%MOD;
@@ -36,7 +35,7 @@ void solve() {
 		for (int i=0; i < sz(v); i++) {
 			total_rep = ((total_rep%MOD) * (factorial(v[i]))%MOD)%MOD;
 		}
-		if (total_rep != 0) cout << (factorial(sz(s))%MOD*inv_mod(total_rep, MOD)%MOD)%MOD;
+		if (total_rep != 0) cout << ((factorial(sz(s))%MOD) * inv_mod(total_rep, MOD))%MOD;
 		else cout << factorial(sz(s))%MOD;
 		cout << '\n';
 		v.clear();

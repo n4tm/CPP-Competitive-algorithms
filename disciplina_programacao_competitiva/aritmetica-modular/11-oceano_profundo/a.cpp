@@ -19,10 +19,12 @@ void solve() {
 		ll int n = 0;
 		ll int pow2 = 1;
 		for(int i=sz(s)-1; i>=0; i--) {
-			n += (((s[i] - '0')%M)*(pow2%M))%M;
-			pow2 = ((pow2%M) * 2)%M;
+			if (s[i] != '\n') {
+				n += (((s[i] - '0')%M)*(pow2%M))%M;
+				pow2 = ((pow2%M) * (2%M))%M;
+			}
 		}
-		if(!n%M) cout << "YES";
+		if(!(n%M)) cout << "YES";
 		else cout << "NO";
 		cout << '\n';
 	}
