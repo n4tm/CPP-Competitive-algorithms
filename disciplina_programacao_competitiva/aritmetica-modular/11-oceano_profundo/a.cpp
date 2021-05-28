@@ -16,11 +16,11 @@ const int M = 131071;
 
 void solve() {
 	while(getline(cin, s, '#')) {
-		int n = 0;
-		int pow2 = 1;
+		ll int n = 0;
+		ll int pow2 = 1;
 		for(int i=sz(s)-1; i>=0; i--) {
 			n += (((s[i] - '0')%M)*(pow2%M))%M;
-			pow2 = ((pow2%M) * (2%M))%M;
+			pow2 = ((pow2%M) * 2)%M;
 		}
 		if(!n%M) cout << "YES";
 		else cout << "NO";

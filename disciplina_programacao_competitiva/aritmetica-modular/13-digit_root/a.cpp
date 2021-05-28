@@ -8,21 +8,14 @@ using namespace std;
 #define pb push_back
 #define all(c) (c).begin(), (c).end()
 #define sz(x) (int)(x).size()
-#define MOD (int)(1e9+7)
+#define MOD (int) 1e9+7
 int inv_mod(int a, int b){return a > 1 ? b-inv_mod(b%a, a)*b/a : 1;};
 
-string s;
+int b, e;
 
 void solve() {
-	while(cin >> s) {
-		ll int n = 0;
-		ll int pow26 = 1;
-		for (int i=s.size()-1; i>=0; i--) {
-			n += (s[i]-'A')*pow26;
-			pow26 = (pow26%MOD * 26%MOD)%MOD;
-		}
-		cout << n%MOD << '\n';
-	}
+	cin >> b >> e;
+	
 };
 
 int main() {
