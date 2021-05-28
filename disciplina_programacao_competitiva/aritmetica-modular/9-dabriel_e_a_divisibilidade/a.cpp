@@ -20,9 +20,10 @@ void solve() {
 	for (int i=0; i<nums; i++) {
 		cin >> m;
 		int binnum = 0;
+		int pow2 = 1;
 		for (int j=sz(s)-1; j >= 0; j--) {
-			int pow2 = pow(2, (sz(s)-1-j));
-			binnum += (((s[j]-'0')%m)*(pow2%m)%m)%m;
+			binnum += (((s[j]-'0')%m)*(pow2)%m)%m;
+			pow2 = (2%m*pow2%m)%m;
 		}
 		if(!(binnum % m)) ans.pb(m);
 	}
