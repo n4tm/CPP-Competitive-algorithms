@@ -8,39 +8,38 @@ using namespace std;
 #define pb push_back
 #define all(c) (c).begin(), (c).end()
 #define sz(x) (int)(x).size()
-#define MOD (int)(1e9+7)
-int inv_mod(int a, int b){return (a > 1 ? b-inv_mod(b%a, a)*b/a : 1);}
+#define MOD (int)(1e8+7)
+int inv_mod(ll int a, ll int b){return a > 1 ? b-inv_mod(b%a, a)*b/a : 1;};
 
-string s;
-vector<int> v;
-
-int factorial(int num) {
-	if(num > 1) return (num%MOD*factorial(num-1)%MOD)%MOD;
+int factorial(ll int num) {
+	if(num > 1) return ((num%MOD)*(factorial(num-1))%MOD)%MOD;
 	else return 1;
 }
+
+string s;
+vec<int> v;
 
 void solve() {
 	while(cin >> s) {
 		if (s == "0") break;
-		int rep = 0;
-		int total_rep = 1;
+		ll int rep = 0;
+		ll int p = factorial(sz(s));
 		sort(s.begin(), s.end());
-		for(int i = 1; i < sz(s); i++) {
-			if (s[i-1] == s[i]) rep+=2;
-			if (rep!=0) {
-				v.pb(rep);
+		for(ll int i = 1; i < sz(s)+1; i++) {
+			if ((s[i-1] == s[i]) && (rep == 0)) rep+=2;
+			else if ((s[i-1] == s[i]) && (rep!=0)) rep+=1;
+			else if (rep!=0) {
+				v.pb(factorial(rep));
 				rep = 0;
 			}
 		}
-		for (int i=0; i < sz(v); i++) {
-			total_rep = ((total_rep%MOD) * (factorial(v[i]))%MOD)%MOD;
+
+		for (ll int i=0; i < sz(v); i++) {
+			p = ((p%MOD) * (inv_mod(v[i], MOD)))%MOD;
 		}
-		if (total_rep != 0) cout << ((factorial(sz(s))%MOD) * inv_mod(total_rep, MOD))%MOD;
-		else cout << factorial(sz(s))%MOD;
-		cout << '\n';
+		cout << p%MOD << '\n';
 		v.clear();
 	}
-
 };
 
 int main() {
