@@ -18,11 +18,15 @@ void solve() {
 	while(getline(cin, s, '#')) {
 		ll int n = 0;
 		ll int pow2 = 1;
-		for(int i=sz(s)-1; i>=0; i--) {
+		for(int j=0; j<sz(s)-1; j++) {
+			pow2 = ((pow2%M)*(2%M))%M;
+		}
+		for(int i=0; i<sz(s); i++) {
 			if (s[i] != '\n') {
+				pow2 = pow2/2;
 				n += (((s[i] - '0')%M)*(pow2%M))%M;
-				pow2 = ((pow2%M) * (2%M))%M;
 			}
+
 		}
 		if(!(n%M)) cout << "YES";
 		else cout << "NO";
