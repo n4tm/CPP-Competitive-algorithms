@@ -6,33 +6,22 @@ using namespace std;
 #define ar array
 #define vec vector
 #define pb push_back
+#define ins insert
 #define all(c) (c).begin(), (c).end()
 #define sz(x) (int)(x).size()
-#define MOD (int) 1e9+7
-int inv_mod(int a, int b){return a > 1 ? b-inv_mod(b%a, a)*b/a : 1;};
+#define MOD (int)(1e9+7)
+int inv_mod(int a, int b){return (a > 1 ? b-inv_mod(b%a, a)*b/a : 1);}
 
-string s;
-const int M = 131071;
+int n, aux, amount;
+set<int> st;
 
 void solve() {
-	while(getline(cin, s, '#')) {
-		ll int n = 0;
-		ll int pow2 = 1;
-		for(int j=0; j<sz(s)-1; j++) {
-			pow2 = ((pow2%M)*(2%M))%M;
-		}
-		for(int i=0; i<sz(s); i++) {
-			if (s[i] != '\n') {
-				pow2 = pow2/2;
-				n += (((s[i] - '0')%M)*(pow2%M))%M;
-			}
-
-		}
-		if(!(n%M)) cout << "YES";
-		else cout << "NO";
-		cout << '\n';
+	scanf("%d", &n);
+	for (int i=0; i<n; i++) {
+		scanf("%d", &aux);
+		st.ins(aux);
 	}
-
+	printf("%d\n", sz(st));
 };
 
 int main() {
