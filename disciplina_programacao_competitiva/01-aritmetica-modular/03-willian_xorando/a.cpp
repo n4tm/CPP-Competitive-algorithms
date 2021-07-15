@@ -11,24 +11,19 @@ using namespace std;
 #define MOD 1e9+7
 int inv_mod(int a, int b){return a > 1 ? b-inv_mod(b%a, a)*b/a : 1;};
 
-int n, m, k, s[1007];
+ll int n, m, k, aux;
 
-void w_xor() {
-	for(int i=0; i<n; i++) {
-		s[i] = 
-	}
-};
 
 void solve() {
-	cin >> n >> m >> k;
-	while(n||m||k) {
-		for (int i=0; i<n; i++) {
-			cin >> s[i];
+	cin >> n >> m >>k;
+	while(n || m || k) {
+		ll int v[101010];
+		for (ll int i=1; i<=n; i++) {
+			scanf("%lld", &aux);
+			v[i] = aux;
 		}
-		for (int i=0; i<m; i++) {
-			w_xor();
-		}
-		cout << s[k+1] << '\n';
+		if (!(m%k)) printf("%lld\n", v[4]);
+		else printf("%lld\n", v[(n+k-(m%(n+2*k)))%n]);
 		cin >> n >> m >> k;
 	}
 };
