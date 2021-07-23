@@ -14,28 +14,27 @@ using namespace std;
 int inv_mod(int a, int b){return(a>1?b-inv_mod(b%a,a)*b/a:1);}
 unsigned int factorial(unsigned int n){int ans=1,i;for(i=2;i<=n;i++)ans*=i;return ans;}
 
-int t, n, k;
+int t, n, scanaux;
 
 
 void solve() {
-	scanf("%d", &t);
-	// For each test case
-	for (int i = 0; i < t; i++) {
-		scanf("%d %d", &n, &k);
-		set<int> st;
-		for (int j = 1; j <= n; j++) st.insert(m);
-		for (auto it = st.begin(); it != st.end(); it++) {
-			
-		}
+	int cont = 0;
+	scanf("%d", &n);
+	vector<pair<int, int>> v(n); for (pair<int, int> &x : v) {scanf("%d", &x); x.second = cont++;}
+	sort(all(v), greater<pair<int, int>>());
+	for (int i = 0; i < n; i++) {
+		if (v[i].second )
 	}
 };
+
 
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 
+	scanf("%d", &t);
+	for(int i = 0; i < t; i++) solve();
 
-	solve();
 
 	return 0;
 }

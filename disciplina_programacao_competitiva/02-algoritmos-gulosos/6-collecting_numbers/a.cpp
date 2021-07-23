@@ -14,26 +14,27 @@ using namespace std;
 int inv_mod(int a, int b){return(a>1?b-inv_mod(b%a,a)*b/a:1);}
 unsigned int factorial(unsigned int n){int ans=1,i;for(i=2;i<=n;i++)ans*=i;return ans;}
 
-int t, n, k;
-
+int ans, num, smaller;
 
 void solve() {
-	scanf("%d", &t);
-	// For each test case
-	for (int i = 0; i < t; i++) {
-		scanf("%d %d", &n, &k);
-		set<int> st;
-		for (int j = 1; j <= n; j++) st.insert(m);
-		for (auto it = st.begin(); it != st.end(); it++) {
-			
+	int n;
+	scanf("%d", &n);
+	for (int i = 0; i < n; i++) {
+		scanf("%d", &num);
+		if (i == 0) smaller = num;
+		if (num > smaller) continue;
+		else if (num < smaller) {
+			smaller = num;
+			ans++;
 		}
+		if (smaller == 1) break;
 	}
+	printf("%d\n", ++ans);
 };
 
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
-
 
 	solve();
 
