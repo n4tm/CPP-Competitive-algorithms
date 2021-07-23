@@ -58,7 +58,7 @@ int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 
-	while(cin >> n) solve();
+	while(scanf("%d", &n) != EOF) solve();
 
 	return 0;
 }
