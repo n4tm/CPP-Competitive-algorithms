@@ -14,23 +14,32 @@ using namespace std;
 int inv_mod(int a, int b){return(a>1?b-inv_mod(b%a,a)*b/a:1);}
 unsigned int factorial(unsigned int n){int ans=1,i;for(i=2;i<=n;i++)ans*=i;return ans;}
 
-int n;
-string s;
+string s1, s2, s3;
+int a[7<<2];
 
 void solve() {
-    for (int i = 0; i < n; i++) {
-        cin >> s;
-        if (s.length() > 10) {
-            cout << s[0] << s.length()-2 << s[s.length()-1];
-        } else cout << s;
-        cout << endl;
+    cin >> s1 >> s2 >> s3;
+    for (int i = 0; i < s1.length(); i++) {
+        a[s1[i]-65]++;
     }
+    for (int i = 0; i < s2.length(); i++) {
+        a[s2[i]-65]++;
+    }
+    for (int i = 0; i < s3.length(); i++) {
+        a[s3[i]-65]--;
+    }
+    for (int i = 0; i < (7<<2); i++) {
+       if (a[i] != 0) {
+           cout << "NO" << endl;
+           return;
+       }
+    }
+    cout << "YES" << endl;
 }
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    cin >> n;
     
     solve();
     

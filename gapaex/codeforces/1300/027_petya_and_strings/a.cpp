@@ -11,26 +11,28 @@ using namespace std;
 #define sz(x) (int)(x).size()
 #define readintvec(v) for(int &x: v) scanf("%d", &x)
 #define MOD (int)(1e9+7)
+#define toupper(s) transform(all(s), s.begin(), ::toupper)
+#define tolower(s) transform(all(s), s.begin(), ::tolower)
 int inv_mod(int a, int b){return(a>1?b-inv_mod(b%a,a)*b/a:1);}
 unsigned int factorial(unsigned int n){int ans=1,i;for(i=2;i<=n;i++)ans*=i;return ans;}
 
-int n;
-string s;
+string s1, s2;
+int ans;
 
 void solve() {
-    for (int i = 0; i < n; i++) {
-        cin >> s;
-        if (s.length() > 10) {
-            cout << s[0] << s.length()-2 << s[s.length()-1];
-        } else cout << s;
-        cout << endl;
-    }
+    cin >> s1;
+    cin >> s2;
+    toupper(s1);
+    toupper(s2);
+    if (s1 < s2) ans = -1;
+    else if (s1 > s2) ans = 1;
+    else ans = 0;
+    cout << ans << endl;
 }
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    cin >> n;
     
     solve();
     
