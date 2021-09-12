@@ -11,28 +11,19 @@ using namespace std;
 #define MOD 1e9+7
 int inv_mod(int a, int b){return a > 1 ? b-inv_mod(b%a, a)*b/a : 1;};
 
-int m;
-
-void solve() {
-	while(cin >> m) {
-		int n = 1;
-		string s = "";
-		while (n%m) {
-			s += "1";
-			int pow10 = (10%m*n%m)%m;
-			n = (pow10%m + 1%m)%m;
-		
-		}
-		cout << s.size()+1 << '\n';
-	}
-};
-
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
+	int n;
+	while(cin >> n) {
+		int ans = 1, val = 1;
+		while (val) {
+			val = (val*10 + 1)%n;
+			ans++;
+		}
+		cout << ans << endl;
+	}
 
-
-	solve();
 
 	return 0;
 }

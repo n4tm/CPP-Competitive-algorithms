@@ -19,15 +19,25 @@ unsigned int factorial(unsigned int n){unsigned int ans=1,i;for(i=2;i<=n;i++)ans
 
 /*  */
 
+
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
-    
-    int n, m, k;
-    while (cin >> n >> m >> k && n || m || k) {
-        vec<int> v(n); readvec(v);
-        cout << v[(k-1-m%n+n)%n] << endl;
+    string s;
+    const int M = 131071;
+    while (getline(cin, s, '#')) {
+        cin.ignore();
+        ll int pow2 = 1, b10 = 0;
+        for (ll int i = len(s)-1; i >= 0; --i) {
+            if (s[i] != '0' && s[i] != '1') continue;
+            b10 = (b10%M + ((s[i]-'0')*pow2)%M)%M;
+            pow2 = ((pow2%M)*2)%M;
+        }
+        if (b10%M == 0) cout << "YES";
+        else cout << "NO";
+        cout << endl;
     }
+    
     
     return 0;
 }
